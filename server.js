@@ -5,6 +5,12 @@ const port = process.env.PORT || 8000;
 const logger = require("./middleware/logger");
 const errorHandler = require("./middleware/error");
 const notFound = require("./middleware/not_found");
+const { log } = require("console");
+
+//GET FIRR NAME
+
+console.log(__filename);
+
 
 const app = express();
 
@@ -17,7 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger);
 
 //SETUP STATIC FOLDER
-// app.use(express.static(path.join(__dirname,'public')));
+
+app.use(express.static(path.join(__dirname,'public')));
 
 //Routes
 
